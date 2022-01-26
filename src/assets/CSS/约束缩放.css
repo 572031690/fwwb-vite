@@ -1,0 +1,30 @@
+/* 当屏幕大小小于1024px时约束fontsize为42px无法改变 */
+@media screen and (max-width: 1024px) {
+  html {
+    /* font-size: 42px !important; */
+  }
+  .navhome span {
+    font-size: 10px !important;
+  }
+  .navhome-son span {
+    font-size: 10px !important;
+    margin-left: 2% !important;
+  }
+}
+/* 当屏幕大小小于1920px时约束fontsize为80px无法改变 */
+@media screen and (min-width: 1920px) {
+  html {
+    /* font-size: 80px !important; */
+  }
+  .navhome span {
+    font-size: 16px !important;
+  }
+  .navhome-son span {
+    font-size: 14px !important;
+    margin-left: 5% !important;
+  }
+}
+
+/* div{
+    border-radius: 10%;
+} */

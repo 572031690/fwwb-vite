@@ -1,0 +1,357 @@
+.right-body {
+  height: 100%;
+  width: 100%;
+
+}
+.overbox {
+  width: 99%;
+  margin: auto;
+  overflow: auto;
+  padding: 10px 0;
+}
+.bodyheart {
+  // display: flex;
+  width: 100%;
+  // align-items: center; /*由于flex-direction: column，因此align-items代表的是水平方向*/
+  // justify-content: center; /*由于flex-direction: column，因此justify-content代表的是垂直方向*/
+  // flex-direction: column;
+  overflow: auto;
+
+}
+.body-top {
+  margin: 0 auto;
+  margin-top: 40px;
+  height: 45px;
+  width: 85%;
+  background-color: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  .bodytop-heart {
+    margin: 7px 0;
+    height: 28px;
+    width: 100%;
+    img {
+      vertical-align: middle;
+      height: 26px;
+      margin: 0 10px;
+    }
+    span {
+      font-size: 16px;
+      line-height: 28px;
+      height: 28px;
+      vertical-align: middle;
+    }
+  }
+  .topRightBox {
+    display: flex;
+  }
+  .bodyadd {
+    height: 28px;
+    width: 48px;
+    margin: 2px 15px 0 0;
+    margin-left: auto;
+    vertical-align: middle;
+    background-color: #fff;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #dadce0;
+    font-size: 11px;
+    float: right;
+    cursor: pointer;
+    &:hover {
+      background-color: #f0f7ff;
+      color: #8ebaed;
+      border: 1px solid #8ebaed;
+    }
+    &:active {
+      border: 1px solid #144379;
+    }
+  }
+}
+.approvalBtn {
+  margin-left: auto;
+  display: flex;
+  margin-right: 15px;
+  margin-left: auto;
+  vertical-align: middle;
+  // width: 150px;
+  color: #8c959c;
+  cursor: pointer;
+  >div {
+    flex: 1;
+    text-align: center;
+    padding: 3px 3px;
+    border: 0.5px solid #c9d3da;
+    border-right: 0px;
+  }
+  >div:hover {
+    color: #8ebaed;
+  }
+  div:first-child {
+    border-right: 0px;
+    border-radius: 5px 0 0 5px;
+  }
+  div:last-child {
+    border-radius: 0 5px 5px 0;
+    border-right: 0.5px solid #c9d3da;
+  }
+  .currentBtn {
+    background-color: #f0f7ff;
+    color: #8ebaed;
+  }
+}
+.search {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  input {
+    border: none;
+    outline: none;
+    width: 61.5%;
+    height: 30px;
+    padding-left: 105px;
+    border: 2px solid #dadce0;
+    border-right: 0;
+    border-radius: 4px 2px 2px 4px;
+    color: black;
+    font-size: 16px;
+  }
+  button {
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 45px;
+    cursor: pointer;
+    position: absolute;
+    top: 1.6px;
+    right: 26.5px;
+    background: #dadce0;
+    border-radius: 0 2px 2px 0;
+    &:hover {
+      background-color: #c8c8c8;
+      box-shadow: 0 0 3px#c8c8c8;
+    }
+    &:active {
+      padding-left: 1px;
+      padding-top: 1px;
+      background: #dadce0;
+    }
+    &:before {
+      content: "\f002";
+      font-family: FontAwesome;
+      font-size: 16px;
+      color: #f9f0da;
+    }
+  }
+  .selectAvro {
+    width: 89px;
+    position: absolute;
+    margin-top: 1px;
+    z-index: 10;
+  }
+}
+.mytable {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: fit-content;
+  background-color: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  box-shadow:0 0 18px #dadce0 ;
+  padding: 15px 18px 35px;
+  width: 80%;
+  position: relative;
+}
+.mytable::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #dadce0;
+  top: 60px;
+  left: 0;
+}
+.table-top {
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  color: rgb(144,147,153);
+  & > div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    // border: 1px solid red;
+  }
+  .htop-th1 {
+    flex: 1;
+  }
+  .htop-th2 {
+    flex: 3;
+  }
+  .htop-th3 {
+    flex: 3.5;
+  }
+  .htop-th7 {
+    flex: 1.2;
+  }
+  .htop-ope1 {
+    flex: 1.5;
+  }
+}
+
+.tablebody {
+  margin: 0 auto;
+  margin-top: 25px;
+  // border: 0.5px solid #dadce0;
+  border-radius: 4px;
+  position: flex;
+  // align-content: space-between;
+  // justify-content: center;
+
+}
+.tbody {
+  width: 100%;
+  .bodyLine {
+    width: 100%;
+    display: flex;
+    & > div {
+      // border: 1px solid red;
+      overflow: hidden;
+      flex: 1;
+      padding: 8px 0;
+      border-bottom: 1px solid #dadce0;
+    }
+    .body-td2 {
+      flex: 3;
+    }
+    .body-td4 {
+      flex: 3.5;
+    }
+    .body-td3 {
+      flex: 1.2;
+    }
+    .body-ope1 {
+      flex: 1.5;
+    }
+    &:hover {
+      background-color: #f5f7fa;
+    }
+  }
+  
+  .cell {
+    height: 28px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    line-height: 28px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+  }
+  .cell1 {
+    height: 28px;
+    width: 300px;
+    overflow: hidden;
+    /*顾名思义超出限定的宽度就隐藏内容*/
+    white-space: nowrap;
+    /*设置文字在一行显示不能换行*/
+    text-overflow: ellipsis;
+    /*规定当文本溢出时显示省略符号来代表被修剪的文本*/
+  }
+  button {
+    outline: none;
+    border: 0.5px solid #8c959c;
+    text-align: center;
+    font-size: 8px;
+    line-height: 26px;
+    height: 26px;
+    margin: 0 3px;
+    width: 41px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .approval {
+    color: #8c959c;
+    width: 55px;
+    background-color: white;
+    &:hover {
+      background-color: #f0f7ff;
+      color: #8ebaed;
+      border: 1px solid #8ebaed;
+    }
+    &:active {
+      border: 1px solid #144379;
+    }
+  }
+  .roleBtn {
+    color: white;
+    width: 60px;
+    border: 0.5px solid rgb(51, 131, 223);
+    background-color: rgb(78, 110, 242);
+    &:hover {
+      color: #8ebaed;
+      border: 1px solid #8ebaed;
+    }
+    &:active {
+      border: 1px solid #144379;
+    }
+  }
+  .modify {
+    color: #8c959c;
+    background-color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: #f0f7ff;
+      color: #8ebaed;
+      border: 1px solid #8ebaed;
+    }
+    &:active {
+      border: 1px solid #144379;
+    }
+  }
+  
+  .delete {
+    color: #fff;
+    background-color: red;
+    cursor: pointer;
+    &:hover {
+      background-color: #df808f;
+    }
+    &:active {
+      background: red;
+    }
+  }
+  .uppdate {
+    background: #eee;
+    // cursor: not-allowed;
+  }
+  .writeApproval {
+    .approval();
+    
+    width:65px;
+    font-size: 15px;
+  }
+}
+.upbutton {
+  cursor: not-allowed !important;
+}
+.table-bottom {
+  margin-top: 15px;
+  margin-left: 50%;
+}
+
+form {
+  position: relative;
+  width: 350px;
+}
+input {
+  &::-webkit-input-placeholder {
+    color: #c7c8c9;
+  }
+}
+
