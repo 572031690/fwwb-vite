@@ -13,12 +13,6 @@ export const addEditList = {
         dataName: 'needtitle',
         placeholder: '例如:钢材购买需求申请'
       },
-      // {
-      //   label: '类型',
-      //   putType: 'selectItem',
-      //   selectData: ['钢铁', '熟料', '橡胶', '泡沫'],
-      //   dataName: 'itemtype'
-      // },
       {
         label: '材料类型',
         putType: 'selectUrl',
@@ -146,28 +140,6 @@ export const addEditList = {
         ],
         dataName: 'importance'
       },
-      // {
-      //   label: '采购专员编号',
-      //   putType: 'disput',
-      //   dataName: 'buyerid'
-      // },
-      // {
-      //   label: '需求专员编号',
-      //   putType: 'numput',
-      //   dataName: 'neederid',
-      //   placeholder: '例如:15,2,25'
-      // },
-      // {
-      //   label: '到货日期',
-      //   putType: 'date',
-      //   dataName: 'arrivaltime'
-      // },
-      // {
-      //   label: '订单码',
-      //   putType: 'numput',
-      //   dataName: 'auditid',
-      //   placeholder: '例如:165042101'
-      // },
       {
         label: '部门',
         putType: 'selectUrl',
@@ -194,8 +166,6 @@ export const addEditList = {
       itemid: '',
       num: '',
       importance: '',
-      // buyerid: '',
-      // neederid: '',
       comment: '',
       department: ''
     },
@@ -237,29 +207,12 @@ export const addEditList = {
   },
   itemList: {
     dataTableList: [
-      // {
-      //   label: '编号',
-      //   putType: 'input',
-      //   dataName: 'itemid',
-      //   placeholder: '例如:2，4，11'
-      // },
       {
         label: '名称',
         putType: 'input',
         dataName: 'itemtype',
         placeholder: ''
       },
-      // {
-      //   label: '库存',
-      //   putType: 'num',
-      //   dataName: 'stock'
-      // },
-      // {
-      //   label: '单位',
-      //   putType: 'input',
-      //   dataName: 'unit',
-      //   placeholder: '例如:kg,t,片'
-      // },
       {
         label: '描述',
         putType: 'textarea',
