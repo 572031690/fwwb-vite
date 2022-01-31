@@ -23,12 +23,6 @@
                         <span> 单</span>
                     </div>
                     <div class="tabmidtopBodyRight">
-                        <!-- <counTo
-              :startVal="0"
-              :decimals="2"
-              :endVal="totalValue"
-              :duration="3000"
-            /> -->
                         <CountTo  :start='0' :end='totalValue'   :autoPlay="true" :duration='3000' />
                         <span> 万元</span>
                     </div>
@@ -56,7 +50,6 @@
     </div>
 </template>
 <script lang="ts">
-// import counTo from 'vue-count-to'
 import mapChina from '@/components/driver/MapChina.vue'
 import piechart from '@/components/driver/leftchart/piechart.vue'
 import rankchart from '@/components/driver/leftchart/rankchart.vue'
@@ -97,7 +90,9 @@ export default {
          * @desc 屏幕适配算法
          */
         const screenAdapter = () => {
-            data.titleFontSize = (data.body_ref.clientWidth / 100) * 0.8 // 15
+            setTimeout(() => {
+                data.titleFontSize = (data.body_ref.clientWidth / 100) * 0.8 // 15
+            },1000)
         }
         /**
          * @desc 地图传递饼状图全国销量统计数据

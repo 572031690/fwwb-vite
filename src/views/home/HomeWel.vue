@@ -87,10 +87,10 @@
 
 <script lang="ts">
 import { computed, reactive, onMounted, toRefs } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-import { homeWelTs } from '../../type/homeType'
-import $api from '../../service/api'
+import { homeWelTs } from '@/type/homeType'
+import $api from '@/service/api'
 
 export default {
     name: 'home-wel',
@@ -146,7 +146,6 @@ export default {
             datalist: [],
         })
         const getdpartmentTypeNeed = computed(() => {
-            console.log(store.getters.getPermission.includes('need:getNeedCount'),'store.getters.getPermission.inclu');
             return store.getters.getPermission.includes('need:getNeedCount')
         })
         const getdpartmentTypeBuy = computed(() => {

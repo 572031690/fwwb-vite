@@ -76,7 +76,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref, toRefs, reactive, onBeforeUnmount, computed } from 'vue'
+import { onMounted, ref, toRefs, reactive, computed } from 'vue'
 import { routerList } from '@/assets/data/homeRouter'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
@@ -162,7 +162,6 @@ export default {
             if (data.rightnavtopimghome) data.rightnavtopimghome.style.transform = rotate
             data.imghomeflag = !data.imghomeflag
             setTimeout(() => {
-                console.log(data.arrowData, 'data.LabelRefs')
                 for (let i in data.LabelRefs) {
                     data.LabelRefs[i].style.display = status
                 }
@@ -614,7 +613,7 @@ export default {
     font-size: 15px;
 }
 .rightbody {
-    height: calc(100% - 50px);
+    height: calc(100% - 48px);
     width: 100%;
 }
 </style>
