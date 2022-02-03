@@ -48,7 +48,7 @@ export default {
         const getCountryData = async () => {
             const url = 'driver/countrySale'
             await $api(url).then((res:any) => {
-                data.airData = JSON.parse(res)
+                data.airData = res
                 setTimeout(() => {
                     upDataMap()
                 }, 0)
@@ -73,7 +73,6 @@ export default {
         const getCompanyData = async () => {
             const url = 'driver/findAllCompany'
             await $api(url).then((res:any) => {
-                res = JSON.parse(res)
                 const homeName = res[0].countyname
                 const homePort:number[] = res[0].port.split(',')
                 res.forEach((item:any, index:number) => {
@@ -136,9 +135,6 @@ export default {
                         itemStyle: {
                             normal: {
                                 areaColor: '#416cbb', // 地图区域的颜色。
-                                // areaColor: {
-                                //   image: this.imgDom  // 可以将地图背景替换成区域图片
-                                // },
                                 borderColor: '#fff', // 图形的描边颜色。支持的颜色格式同 color，不支持回调函数。
                                 shadowColor: 'black', // 阴影颜色。#41587f
                                 shadowBlur: 8, // 图形阴影的模糊大小。

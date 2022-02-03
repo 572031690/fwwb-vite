@@ -8,9 +8,10 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "echarts": "^5.2.2",
+    "echarts": "^5.1.2",
     "element-plus": "^1.0.2-beta.70",
     "element-resize-detector": "^1.2.4",
+    "print-js": "^1.6.0",
     "qs": "^6.10.1",
     "typescript": "^4.5.2",
     "vue": "^3.2.23",

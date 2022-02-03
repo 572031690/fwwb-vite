@@ -8,7 +8,7 @@ const UILib  = {
   install (Vue:any) {
     Vue.component('CountTo', CountTo)
     Vue.component('vNone', vNone)
-    // Vue.component('vDialog', vDialog)
+    Vue.component('vDialog', vDialog)
     Vue.component('vSearchNav', vSearchNav)
     Vue.component('vDrawer', vDrawer)
   }

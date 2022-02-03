@@ -25,10 +25,11 @@ export default {
             DataName: ['钢材', '木材', '煤炭', '塑料', '中国'],
             unitData: ['kg', 'kg', 'kg', 'kg', 'kg'],
         })
+        const flag = ref(false)
         watch(
             () => props.titleFontSize,
             val => {
-                screenAdapter(val)
+                if(flag.value) screenAdapter(val)
             }
         )
         onMounted(() => {
@@ -154,6 +155,8 @@ export default {
                 ],
             }
             data.chartInstance.setOption(initOption)
+            flag.value = true
+
         }
         /**
          * @desc 获取服务器的数据

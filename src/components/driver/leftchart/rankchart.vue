@@ -145,7 +145,6 @@ export default {
         const getData = async() => {
             const url = 'driver/monthSales'
             await $api(url).then((res:any) => {
-                res = JSON.parse(res)
                 res.sort((a:any, b:any) => {
                     return b.totalData - a.totalData
                 })

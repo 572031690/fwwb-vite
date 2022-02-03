@@ -17,7 +17,8 @@ export default class Request {
     static get: any = (url: string, params?: object, headers?: AxiosRequestHeaders ) => {
         return new Promise((resolve, reject) => {
             axios.get(url, { params, headers }).then((res) => {
-                resolve(res)
+                if(typeof res === 'string') resolve(JSON.parse(res))
+                else resolve(res)
             }).catch(err => {
                 reject(err)
             })
@@ -26,7 +27,8 @@ export default class Request {
     static post: any = (url: string, params?: object, headers?: AxiosRequestHeaders ) => {
         return new Promise((resolve, reject) => {
             axios.post(url, params, { headers }).then(res => {
-                resolve(res)
+                if(typeof res === 'string') resolve(JSON.parse(res))
+                else resolve(res)
             }).catch(err => {
                 reject(err)
             })

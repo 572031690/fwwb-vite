@@ -131,7 +131,6 @@ export default {
         const getData = async () => {
             const url = 'driver/monthIncrement'
             await $api(url).then((res:any) => {
-                res = JSON.parse(res)
                 res.forEach((element:{[key:string]:string}, index:number) => {
                     const myInitSeriseData = {
                         name: '',
@@ -143,14 +142,14 @@ export default {
                         data: [],
                         lineStyle: {
                             // 设置柱的样式
-                            color: '',
+                            color: ''
                         },
                         itemStyle: {
                             // 设置线拐点的样式
                             borderColor: '', // 折线点边框色
                             color: 'white',
-                            borderWidth: 1,
-                        },
+                            borderWidth: 1
+                        }
                     }
                     myInitSeriseData.name = element.materiakName
                     myInitSeriseData.lineStyle.color = data.colorArr[index]
