@@ -1,4 +1,4 @@
-export const tableList = {
+const tableList = {
   needList: {
     tableTitle: ['编号', '需求标题', '物料名称', '物料编号', '数量', '创建日期', '提交人编号', '需求单位', '状态', '操作'],
     tableBody: ['needid', 'needtitle', 'itemtype', 'itemid', 'neednum', 'needday', 'neederid', 'department', 'opetation2', 'opetation1']
@@ -68,3 +68,4 @@ export const tableList = {
     tableBody: ['index', 'employeeid', 'realname', 'username', 'telNum', 'roleId']
   }
 }
+export default tableList

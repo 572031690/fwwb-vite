@@ -16,7 +16,7 @@ export const addEditList = {
       {
         label: '材料类型',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 1
         },
@@ -27,7 +27,7 @@ export const addEditList = {
       {
         label: '物料编号',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 16
         },
@@ -38,7 +38,7 @@ export const addEditList = {
       {
         label: '材料单位',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 7
         },
@@ -50,7 +50,7 @@ export const addEditList = {
       {
         label: '需求部门',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 12
         },
@@ -74,11 +74,11 @@ export const addEditList = {
       uptype: ''
     },
     url: {
-      add: 'home/need/addNeed',
-      edit: 'home/need/editNeed',
-      approval: 'home/need/editNeed',
-      startApproval: 'home/need/approvalNeed',
-      upApproval: 'home/need/completeprocess'
+      add: 'need/addNeed',
+      edit: 'need/editNeed',
+      approval: 'need/editNeed',
+      startApproval: 'need/approvalNeed',
+      upApproval: 'need/completeprocess'
     }
   },
   buyList: {
@@ -97,7 +97,7 @@ export const addEditList = {
       {
         label: '材料类型',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 1
         },
@@ -108,7 +108,7 @@ export const addEditList = {
       {
         label: '物料编号',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 16
         },
@@ -143,7 +143,7 @@ export const addEditList = {
       {
         label: '部门',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 12
         },
@@ -170,11 +170,11 @@ export const addEditList = {
       department: ''
     },
     url: {
-      add: 'home/buy/addBuy',
-      edit: 'home/buy/updateBuy',
-      approval: 'home/buy/updateBuy',
-      startApproval: 'home/buy/startBuyAct',
-      upApproval: 'home/buy/completeprocess'
+      add: 'buy/addBuy',
+      edit: 'buy/updateBuy',
+      approval: 'buy/updateBuy',
+      startApproval: 'buy/startBuyAct',
+      upApproval: 'buy/completeprocess'
     }
   },
   department: {
@@ -201,8 +201,8 @@ export const addEditList = {
       detail: ''
     },
     url: {
-      add: 'home/department/addDepart',
-      edit: 'home/department/editDepart'
+      add: 'department/addDepart',
+      edit: 'department/editDepart'
     }
   },
   itemList: {
@@ -227,8 +227,8 @@ export const addEditList = {
       parentid: ''
     },
     url: {
-      add: 'home/item/additem',
-      edit: 'home/item/editItem',
+      add: 'item/additem',
+      edit: 'item/editItem',
       approval: ''
     }
   },
@@ -243,7 +243,7 @@ export const addEditList = {
       {
         label: '物料名称',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 1
         },
@@ -264,7 +264,7 @@ export const addEditList = {
       {
         label: '材料单位',
         putType: 'selectUrl',
-        url: 'home/item/findItemName',
+        url: 'item/findItemName',
         queryParams: {
           itemid: 7
         },
@@ -289,8 +289,8 @@ export const addEditList = {
       unit: ''
     },
     url: {
-      add: 'home/warehouse/addDepository',
-      edit: 'home/warehouse/updateDepository',
+      add: 'warehouse/addDepository',
+      edit: 'warehouse/updateDepository',
       approval: ''
     }
   },
@@ -336,8 +336,8 @@ export const addEditList = {
       employeeid: ''
     },
     url: {
-      add: 'home/user/AddUser',
-      edit: 'home/user/editUser',
+      add: 'user/AddUser',
+      edit: 'user/editUser',
       approval: ''
     }
   },
@@ -376,8 +376,8 @@ export const addEditList = {
       type: ''
     },
     url: {
-      add: 'home/permission/addPerm',
-      edit: 'home/permission/updatePerm',
+      add: 'permission/addPerm',
+      edit: 'permission/updatePerm',
       approval: ''
     }
   },
@@ -408,8 +408,8 @@ export const addEditList = {
       description: ''
     },
     url: {
-      add: 'home/role/addRole',
-      edit: 'home/role/updateRole',
+      add: 'role/addRole',
+      edit: 'role/updateRole',
       approval: ''
     }
   }

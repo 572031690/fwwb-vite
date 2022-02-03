@@ -13,12 +13,11 @@ const routes: RouteRecordRaw[] = [
     { path: '/login', component: () => import("@/views/Login.vue"), name: 'login' },
     {
         path: '/home', component: () => import("@/views/home/Home.vue"), name: 'home', children: [
-            // {
-            //     path: 'user',
-            //     // component: User,
-            //     component: () => import('@/views/home/User.vue'),
-            //     meta: { title: '用户信息', isTab: true }
-            // },
+            {
+                path: 'user',
+                component: () => import('@/views/home/User.vue'),
+                meta: { title: '用户信息', isTab: true }
+            },
             // {
             //     path: 'need',
             //     component: () => import('@/views/home/need.vue')

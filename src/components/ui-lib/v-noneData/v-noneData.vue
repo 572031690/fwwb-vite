@@ -1,6 +1,6 @@
 <template>
   <div class="noneData">
-    <img src="../../assets/img/noneData.png" width="250px" alt="" />
+    <img src="@/assets/img/noneData.png" width="250px" alt="" />
     <br />
     暂无数据
   </div>
