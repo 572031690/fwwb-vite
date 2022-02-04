@@ -28,6 +28,13 @@
                                             </el-option>
                                         </el-select>
                                         <div class="search-right">
+                                            <!-- <el-input
+                                                v-model="params.dname"
+                                                class="w-50 m-2"
+                                                @change="search"
+                                                placeholder="请输入用户姓名"
+                                                :prefix-icon="Search"
+                                            /> -->
                                             <input type="text" placeholder="请输入用户姓名" @change="search" v-model="params.dname" />
                                             <button type="button" @click="search"></button>
                                         </div>
@@ -389,6 +396,7 @@ export default {
             seeData, 
             closeaddDialog,
             getRole,
+            search,
             resetPass,
             checkRoleList
         }
@@ -398,33 +406,33 @@ export default {
 <style lang="less" scoped>
 @import url('../../assets/less/right-table.less');
 .searchfa {
-    /deep/ .el-input__inner {
-        padding: 0 5px;
-    }
+  /deep/ .el-input__inner {
+    padding: 0 5px;
+  }
 }
 
 .tableRole {
-    &Top {
-        display: flex;
-        border-bottom: 1px solid rgb(235, 238, 245);
-    }
-    &Body {
-        display: flex;
-        border-bottom: 1px solid rgb(235, 238, 245);
-    }
-    .textRole {
-        color: rgb(111, 115, 116);
-        font-size: 14px;
-        width: 150px;
-        height: 50px;
-        line-height: 50px;
-    }
-    .btnRole {
-        color: rgb(111, 115, 116);
-        font-size: 14px;
-        width: 60px;
-        height: 50px;
-        line-height: 50px;
-    }
+  &Top {
+    display: flex;
+    border-bottom: 1px solid rgb(235, 238, 245);
+  }
+  &Body {
+    display: flex;
+    border-bottom: 1px solid rgb(235, 238, 245);
+  }
+  .textRole {
+    color: rgb(111, 115, 116);
+    font-size: 14px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+  }
+  .btnRole {
+    color: rgb(111, 115, 116);
+    font-size: 14px;
+    width: 60px;
+    height: 50px;
+    line-height: 50px;
+  }
 }
 </style>

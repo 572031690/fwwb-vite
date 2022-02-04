@@ -25,7 +25,7 @@ const getApi = (url:string,params?:Record<string, any>) => {
         }
     })
     if (!ajaxData) return Promise.reject(new Error('api地址错误')) // 判断是否为请求地址错误
-    const headers = ajaxData.headers
+    const headers = ajaxData.headers || ''
     if (ajaxData.method === 'POST') {
         return request.post(`${base.controllerWar}${ajaxData.path}`,params,headers)
     }else if (ajaxData.method === 'GET') {

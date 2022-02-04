@@ -113,10 +113,9 @@
 */
 import { rulesData } from '@/assets/data/rules'
 import { addEditList } from '@/assets/data/addEditList'
-import { reactive, onMounted, toRefs, ref, watch } from 'vue'
+import { reactive, toRefs, ref, watch } from 'vue'
 import $api from '@/service/api'
 import { dialogTs } from '@/type/globalType'
-import { useRoute, useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox, ElForm } from 'element-plus'
 
 export default {
@@ -195,7 +194,7 @@ export default {
             },
         },
     },
-    setup(props: any, content: any) {
+    setup(props: any, context: any) {
         var validatePass2 = (rule: any, value: number, callback: any) => {
             if (value < data.dialogData.formList.totalstock) {
                 callback(new Error('仓库空间需要大于等于库存！'))
@@ -282,8 +281,6 @@ export default {
              * @desc 编辑表单数据初始化
              */
             edit: () => {
-                console.log(props.editDisabled, 'editDisabled')
-
                 if (props.editDisabled.length) {
                     data.dialogData.dataTableList.forEach((item: any) => {
                         if (props.editDisabled.includes(item.dataName)) {
@@ -384,7 +381,7 @@ export default {
                                 type: 'success',
                                 message: props.openType === 'add' ? '添加成功!' : props.openType === 'edit' ? '修改成功' : '送审成功',
                             })
-                            content.emit('updata')
+                            context.emit('updata')
                             close()
                         }
                     } else {
@@ -400,7 +397,7 @@ export default {
             for (const i in data.dialogData.formList) {
                 data.dialogData.formList[i] = ''
             }
-            content.emit('closeaddDialog')
+            context.emit('closeaddDialog')
         }
         /**
          * @desc 审批接口在提交之前修改表单数据
@@ -447,7 +444,7 @@ export default {
                     type: 'success',
                     message: '送审成功',
                 })
-                content.emit('updata')
+                context.emit('updata')
                 close()
             })
         }

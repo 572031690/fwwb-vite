@@ -113,12 +113,14 @@ export interface totalChartTs {
 }
 
 export interface buyTs {
-    statusColorList: ['#eee', 'rgb(92, 92, 143)', 'rgb(92, 92, 143)', 'rgb(23, 165, 23)', 'rgb(226, 63, 63)', 'rgb(98, 98, 207)'],
+    statusColorList: string[],
     tableText: {
         tableTitle: string[],
         tableBody: string[]
     },
-    dialogFormShow: false,
+    dialogFormShow: boolean,
+    currentList: any
+    openType: string
     drawerUrlList: {
         ressetApproval: string,
         getApprovalList: string,

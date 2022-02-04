@@ -18,8 +18,8 @@
                                     <div :class="{ currentBtn: !currentApprovalType }" @click="getApprovalType(false)">历史待办</div>
                                 </div>
                                 <div class="approvalBtn" v-if="showAdd">
-                                    <el-button class="systemBtn" type="primary" plain @click="getPrint()">打 印</el-button>
-                                    <el-button class="systemBtn" type="primary" plain @click="outData()">导 出</el-button>
+                                    <el-button class="systemBtn" size="small" type="primary" plain @click="getPrint()">打 印</el-button>
+                                    <el-button class="systemBtn" size="small" type="primary" plain @click="outData()">导 出</el-button>
                                 </div>
                                 <button class="bodyadd" @click="gethomeAdd()" v-if="showAdd"><i class="el-icon-plus"></i>添加</button>
                             </el-col>
@@ -139,6 +139,7 @@ import $tables from '@/assets/data/tableData'
 import { useRoute } from 'vue-router'
 import { needTs } from '@/type/homeType'
 import printJS from 'print-js'
+import { debug } from 'console'
 
 export default {
     components: {
@@ -304,16 +305,18 @@ export default {
          * @desc 打印调取数据库全部数据
          */
         const getPrint = async () => {
-            const params = {
-                limit: 0, // 每页显示5条记录
-                page: 0, // 当前是第几页
-                searchName: '', // 查询数据
-                selectName: '', // 查询状态
-            }
+            // const params = {
+            //     limit: 0, // 每页显示5条记录
+            //     page: 0, // 当前是第几页
+            //     searchName: '', // 查询数据
+            //     selectName: '', // 查询状态
+            // }
+            const params = { ...data.params }
+
             await $api(data.searchUrl, params)
                 .then((res: any) => {
                     const currentPrint = []
-                    for (let i = 0; i < data.list.length; i++) {
+                    for (let i = 0; i < res.list.length; i++) {
                         currentPrint.push({
                             needid: res.list[i].needid,
                             needtitle: res.list[i].needtitle,

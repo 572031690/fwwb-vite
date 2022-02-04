@@ -17,8 +17,8 @@
                                     <div :class="{ currentBtn: !currentApprovalType }" @click="getApprovalType(false)">历史待办</div>
                                 </div>
                                 <div class="approvalBtn" v-if="showAdd">
-                                    <el-button class="systemBtn" type="primary" plain @click="getPrint()">打 印</el-button>
-                                    <el-button class="systemBtn" type="primary" plain @click="outData()">导 出</el-button>
+                                    <el-button class="systemBtn" type="primary" size="small" plain @click="getPrint()">打 印</el-button>
+                                    <el-button class="systemBtn" type="primary" size="small" plain @click="outData()">导 出</el-button>
                                 </div>
                                 <button class="bodyadd" @click="gethomeAdd()" v-if="showAdd"><i class="el-icon-plus"></i>添加</button>
                             </el-col>
@@ -213,6 +213,7 @@ export default {
                 到货日期: 2,
                 需求日期: 3,
             },
+            currentList:{},
             select: [
                 // 搜索框筛选数据
                 {
@@ -250,6 +251,7 @@ export default {
             list: [],
             loading2: true,
             thistime: null,
+            openType: ''
         })
         const showStatus = computed(() => {
             return function(type: number, approvaltype: number)  {
@@ -419,6 +421,71 @@ export default {
                 })
         }
         /**
+         * @desc 删除方法
+         */
+        const deletedata = (data:any, url: string) => {
+            ElMessageBox.confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning',
+            }).then(async () => {
+                await $api(url, {
+                    params: data
+                }).then((res: any) => {
+                    if (res) {
+                        ElMessage({
+                            type: 'success',
+                            message: '删除成功!'
+                        })
+                        search()
+                    } else {
+                        ElMessage.error('错了哦，删除失败')
+                    }
+                })
+            }).catch((err:any) => {
+                if (err === 'cncel') {
+                    ElMessage('取消删除')
+                } else {
+                    ElMessage({
+                        type: 'error',
+                        message: err
+                    })
+                }
+            })
+        }
+        /**
+         * @desc 页码
+         */
+        const handleSizeChange = (val: number) => {
+            data.params.limit = val // 设置每页多少条记录
+            search()
+        }
+        const handleCurrentChange = (val: number) => {
+            data.params.page = val
+            search()
+        }
+        /**
+         * @desc 添加方法打开界面
+         */
+        const gethomeAdd = () => {
+            data.openType = 'add'
+            data.dialogFormShow = true
+        }
+        /**
+         * @desc 修改表单
+         */
+        const seeData = (e:any) => {
+            data.openType = 'edit'
+            data.currentList = e
+            data.dialogFormShow = true
+        }
+        /**
+         * @desc 关闭蒙版
+         */
+        const closeaddDialog = () => {
+            data.dialogFormShow = false
+        }
+        /**
          * @desc 顶部搜索调用更新表格
          */
         const getSearchForm = (searchFrom:{
@@ -481,6 +548,12 @@ export default {
             data.currentIndex = e
             data.Draw.showDraw()
         }
+        /**
+         * @desc 抽屉关闭事件
+         */
+        const drawerClose = () => {
+            search()
+        }
         return {
             ...toRefs(data),
             showStatus,
@@ -493,7 +566,13 @@ export default {
             writeApproval,
             seeApproval,
             outData,
-            getPrint
+            deletedata,
+            handleSizeChange,
+            handleCurrentChange,
+            gethomeAdd,
+            getPrint,
+            seeData,
+            closeaddDialog
         }
     },
 }

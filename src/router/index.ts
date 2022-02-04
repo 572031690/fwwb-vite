@@ -18,10 +18,10 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('@/views/home/User.vue'),
                 meta: { title: '用户信息', isTab: true }
             },
-            // {
-            //     path: 'need',
-            //     component: () => import('@/views/home/need.vue')
-            // },
+            {
+                path: 'need',
+                component: () => import('@/views/home/need.vue')
+            },
             // {
             //     path: 'permission',
             //     component: () => import('@/views/home/permission.vue')
