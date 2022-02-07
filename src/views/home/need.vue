@@ -139,8 +139,6 @@ import $tables from '@/assets/data/tableData'
 import { useRoute } from 'vue-router'
 import { needTs } from '@/type/homeType'
 import printJS from 'print-js'
-import { debug } from 'console'
-
 export default {
     components: {
         needSearch,
@@ -305,12 +303,6 @@ export default {
          * @desc 打印调取数据库全部数据
          */
         const getPrint = async () => {
-            // const params = {
-            //     limit: 0, // 每页显示5条记录
-            //     page: 0, // 当前是第几页
-            //     searchName: '', // 查询数据
-            //     selectName: '', // 查询状态
-            // }
             const params = { ...data.params }
 
             await $api(data.searchUrl, params)
@@ -446,6 +438,7 @@ export default {
             seeApproval,
             drawerClose,
             writeApproval,
+            getApprovalType
         }
     },
 }

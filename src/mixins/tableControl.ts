@@ -21,7 +21,7 @@ interface dataList {
         page: number
         total: number
         dname: string
-        selectValue: string
+        selectValue: string|number
     },
     searchUrl: string
     currentList: Record<string, any>,
@@ -29,6 +29,7 @@ interface dataList {
     list: Record<string, any>[]
     loading2: boolean,
     dialogFormShow:boolean
+    thistime: null|NodeJS.Timeout
 }
 const tableControler = {
     // props: {
@@ -54,6 +55,7 @@ const tableControler = {
             openType: 'edit',
             list: [],
             loading2: true,
+            thistime: null,
             dialogFormShow:false
         })
         /**

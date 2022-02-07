@@ -1,7 +1,6 @@
 import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
 import { ElMessage } from 'element-plus'
 import 'element-plus/lib/theme-chalk/index.css'
-import HomeWel from '@/views/home/HomeWel.vue'
 
 
 const routes: RouteRecordRaw[] = [
@@ -22,22 +21,22 @@ const routes: RouteRecordRaw[] = [
                 path: 'need',
                 component: () => import('@/views/home/need.vue')
             },
-            // {
-            //     path: 'permission',
-            //     component: () => import('@/views/home/permission.vue')
-            // },
+            {
+                path: 'permission',
+                component: () => import('@/views/home/permission.vue')
+            },
             {
                 path: 'personal',
                 component: () => import('@/views/home/personal.vue')
             },
-            // {
-            //     path: 'item',
-            //     component: () => import('@/views/home/Item.vue')
-            // },
-            // {
-            //     path: 'buy',
-            //     component: () => import('@/views/home/Buy.vue')
-            // },
+            {
+                path: 'item',
+                component: () => import('@/views/home/Item.vue')
+            },
+            {
+                path: 'buy',
+                component: () => import('@/views/home/Buy.vue')
+            },
             {
                 path: 'homewel',
                 component: () => import("@/views/home/HomeWel.vue")
@@ -50,18 +49,18 @@ const routes: RouteRecordRaw[] = [
                 path: 'driver',
                 component: () => import('@/views/home/Driver.vue')
             },
-            // {
-            //     path: 'contrstock',
-            //     component: () => import('@/views/home/ControlStock.vue')
-            // },
-            // {
-            //     path: 'role',
-            //     component: () => import('@/views/home/Role.vue')
-            // },
-            // {
-            //     path: 'warehouse',
-            //     component: () => import('@/views/home/Warehouse.vue')
-            // },
+            {
+                path: 'contrstock',
+                component: () => import('@/views/home/ControlStock.vue')
+            },
+            {
+                path: 'role',
+                component: () => import('@/views/home/Role.vue')
+            },
+            {
+                path: 'warehouse',
+                component: () => import('@/views/home/Warehouse.vue')
+            },
             {
                 path: '',
                 redirect: '/home/homewel'
