@@ -2,7 +2,6 @@ import {createApp} from 'vue';
 import App from './App.vue';
 import router from './router/index'; //引入vue-router
 import vuex from "./store/index";
-// import './index.css';
 import 'element-plus/lib/theme-chalk/index.css'
 import 'font-awesome/css/font-awesome.css' // 图标插件
 import ElementPlus from 'element-plus'

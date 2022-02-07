@@ -19,11 +19,11 @@
                 <div class="tabmidtopTitle">2021年统计</div>
                 <div class="tabmidtopBody">
                     <div class="tabmidtopBodyLeft">
-                        <CountTo  :start='0' :end='totalCount'   :autoPlay="true" :duration='3000' />
+                        <CountTo  :start='0' :end='totalCount'   :autoPlay="true" :duration='5000' />
                         <span> 单</span>
                     </div>
                     <div class="tabmidtopBodyRight">
-                        <CountTo  :start='0' :end='totalValue'   :autoPlay="true" :duration='3000' />
+                        <CountTo  :start='0' :end='totalValue'   :autoPlay="true" :duration='5000' />
                         <span> 万元</span>
                     </div>
                 </div>
