@@ -444,7 +444,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import url('../../assets/less/right-table.less');
+@import url('../../styles/right-table.less');
 
 .approvalBtn {
     /deep/ .el-button {

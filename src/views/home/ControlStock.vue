@@ -255,7 +255,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import url('../../assets/less/right-table.less');
+@import url('../../styles/right-table.less');
 .overbox {
     .dialogTopBody {
         display: flex;
@@ -264,7 +264,6 @@ export default {
         &Box {
             font-size: 16px;
             padding: 10px 10px 0 10px;
-            // width: 100px;
             .title {
                 font-weight: 700;
             }
