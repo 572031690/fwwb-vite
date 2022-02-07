@@ -176,6 +176,7 @@ export interface buyTs {
 
 export interface needTs {
     statusColorList: string[]
+    currentList: any
     tableText: {
         tableTitle: string[]
         tableBody: string[]
@@ -187,6 +188,7 @@ export interface needTs {
         passRequest: string
         rejectRequest: string
     }
+    openType: string
     dialogUrl: {
         startApproval: string
         upApproval: string

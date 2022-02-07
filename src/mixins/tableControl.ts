@@ -131,57 +131,57 @@ const tableControler = {
         /**
          * @desc 提交送审表单
          */
-        // const upData = (item:any) => {
-        //     ElMessageBox.confirm('是否确定提交审批申请?', '提示', {
-        //         confirmButtonText: '确定',
-        //         cancelButtonText: '取消',
-        //         type: 'warning'
-        //     })
-        //         .then(async () => {
-        //             startApproval(item)
-        //         })
-        //         .catch((err:string) => {
-        //             if (err === 'cancel') {
-        //                 ElMessage('取消提交')
-        //             } else {
-        //                 ElMessage({
-        //                     type: 'error',
-        //                     message: err
-        //                 })
-        //             }
-        //         })
-        // }
+        const upData = (item:any, api:{startApproval:string, upApproval:string}) => {
+            ElMessageBox.confirm('是否确定提交审批申请?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            })
+                .then(async () => {
+                    startApproval(item, api)
+                })
+                .catch((err:string) => {
+                    if (err === 'cancel') {
+                        ElMessage('取消提交')
+                    } else {
+                        ElMessage({
+                            type: 'error',
+                            message: err
+                        })
+                    }
+                })
+        }
         /**
          * @desc 启动审批请求
          */
-        // const startApproval = async (item:any, api:string, apiUp:string) => {
-        //     const url = api
-        //     // const url = mixinsData.dialogUrl.startApproval
-        //     const params = {
-        //         needid: item.needid,
-        //         buyid: item.buyid
-        //     }
-        //     await $api(url, { params }).then((res: any) => {
-        //         upApproval(res.list[0].taskId, apiUp)
-        //     })
-        // }
+        const startApproval = async (item:any, api:{startApproval:string, upApproval:string}) => {
+            const url = api.startApproval
+            // const url = mixinsData.dialogUrl.startApproval
+            const params = {
+                needid: item.needid,
+                buyid: item.buyid
+            }
+            await $api(url, { params }).then((res: any) => {
+                upApproval(res.list[0].taskId, api.upApproval)
+            })
+        }
         /**
          * @desc 提交审批请求
          */
-        // const upApproval = async (taskId: string, api:string) => {
-        //     const url = api
-        //     // const url = mixinsData.dialogUrl.upApproval
-        //     const params = {
-        //         taskId: taskId
-        //     }
-        //     await $api(url, { params }).then(() => {
-        //         ElMessage({
-        //             type: 'success',
-        //             message: '送审成功'
-        //         })
-        //         search()
-        //     })
-        // }
+        const upApproval = async (taskId: string, urls:string) => {
+            const url = urls
+            // const url = mixinsData.dialogUrl.upApproval
+            const params = {
+                taskId: taskId
+            }
+            await $api(url, { params }).then(() => {
+                ElMessage({
+                    type: 'success',
+                    message: '送审成功'
+                })
+                search()
+            })
+        }
         /**
          * @desc 修改表单
          */
@@ -208,14 +208,14 @@ const tableControler = {
             mixinsData,
             closeaddDialog,
             seeData,
-            // upData,
+            upData,
             gethomeAdd,
             handleCurrentChange,
             handleSizeChange,
             deletedata,
             search,
-            // startApproval,
-            // upApproval
+            startApproval,
+            upApproval
         }
 
     }

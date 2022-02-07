@@ -69,7 +69,7 @@
                                             >
                                                 删除
                                             </button>
-                                            <button class="modify" v-if="!item.uptype" @click="upData(item)">提交</button>
+                                            <button class="modify" v-if="!item.uptype" @click="upData(item,dialogUrl)">提交</button>
                                             <button class="approval" @click="seeApproval(key)" v-if="item.uptype == 1 || item.uptype == 2 || item.uptype == 3">
                                                 查看审批
                                             </button>
@@ -117,7 +117,7 @@
             <vDialog
                 ref="addDialog"
                 :dialogFormShow="dialogFormShow"
-                @updata="search"
+                @updata="upTable()"
                 @closeaddDialog="closeaddDialog"
                 :IntList="IntList"
                 :topChange="topChange"
@@ -138,6 +138,7 @@ import $api from '@/service/api'
 import $tables from '@/assets/data/tableData'
 import { useRoute } from 'vue-router'
 import { needTs } from '@/type/homeType'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import printJS from 'print-js'
 export default {
     components: {
@@ -263,7 +264,9 @@ export default {
             loading2: true,
             thistime: null,
             searchUrl: '',
-            Draw: ref()
+            openType:'',
+            Draw: ref(),
+            currentList:{}
         })
         const showStatus = computed(() => {
             return function (type: number, plan: number, approvaltype: number) {
@@ -285,6 +288,13 @@ export default {
             if (data.thistime) clearInterval(data.thistime)
         })
         /**
+         * @desc 更新图表
+         */
+        const upTable = () => {
+            data.dialogFormShow = false
+            search()
+        }
+        /**
          * @desc ajax请求后台数据 获得list数据 并用于分页
          */
         const search = async () => {
@@ -300,11 +310,22 @@ export default {
                 })
         }
         /**
+         * @desc 页码
+         */
+        const handleSizeChange = (val: number) => {
+            data.params.limit = val // 设置每页多少条记录
+            search()
+        }
+        const handleCurrentChange = (val: number) => {
+            data.params.page = val
+            search()
+        }
+
+        /**
          * @desc 打印调取数据库全部数据
          */
         const getPrint = async () => {
             const params = { ...data.params }
-
             await $api(data.searchUrl, params)
                 .then((res: any) => {
                     const currentPrint = []
@@ -333,6 +354,13 @@ export default {
          */
         const outData = () => {
             window.location.href = 'http://localhost:8081/controller_war/webneed/needResult'
+        }
+        /**
+         * @desc 添加方法打开界面
+         */
+        const gethomeAdd = () => {
+            data.openType = 'add'
+            data.dialogFormShow = true
         }
         /**
          * @desc 打印方法
@@ -400,6 +428,14 @@ export default {
             search()
         }
         /**
+         * @desc 修改表单
+         */
+        const seeData = (e:any) => {
+            data.openType = 'edit'
+            data.currentList = e
+            data.dialogFormShow = true
+        }
+        /**
          * @desc 切换代办任务（审批）
          */
         const getApprovalType = (type: boolean) => {
@@ -408,6 +444,39 @@ export default {
             data.searchUrl = type ? 'need/queryNeedActTask' : 'need/findFinishedNeed'
             data.tableText = type ? $tables.needList : $tables.needListHistry
             search()
+        }
+        /**
+         * @desc 删除方法
+         */
+        const deletedata = (data:any, url: string) => {
+            ElMessageBox.confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning',
+            }).then(async () => {
+                await $api(url, {
+                    params: data
+                }).then((res: any) => {
+                    if (res) {
+                        ElMessage({
+                            type: 'success',
+                            message: '删除成功!'
+                        })
+                        search()
+                    } else {
+                        ElMessage.error('错了哦，删除失败')
+                    }
+                })
+            }).catch((err:any) => {
+                if (err === 'cncel') {
+                    ElMessage('取消删除')
+                } else {
+                    ElMessage({
+                        type: 'error',
+                        message: '取消删除'
+                    })
+                }
+            })
         }
         /**
          * @desc 打开查看抽屉
@@ -429,6 +498,66 @@ export default {
             data.currentIndex = e
             data.Draw.showDraw()
         }
+        /**
+         * @desc 关闭蒙版
+         */
+        const closeaddDialog = () => {
+            data.dialogFormShow = false
+        }
+        /**
+         * @desc 提交送审表单
+         */
+        const upData = (item:any, api:{startApproval:string, upApproval:string}) => {
+            ElMessageBox.confirm('是否确定提交审批申请?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            })
+                .then(async () => {
+                    startApproval(item, api)
+                })
+                .catch((err:string) => {
+                    if (err === 'cancel') {
+                        ElMessage('取消提交')
+                    } else {
+                        ElMessage({
+                            type: 'error',
+                            message: err
+                        })
+                    }
+                })
+        }
+        /**
+         * @desc 启动审批请求
+         */
+        const startApproval = async (item:any, api:{startApproval:string, upApproval:string}) => {
+            const url = api.startApproval
+            // const url = mixinsData.dialogUrl.startApproval
+            const params = {
+                needid: item.needid,
+                buyid: item.buyid
+            }
+            await $api(url, { params }).then((res: any) => {
+                upApproval(res.list[0].taskId, api.upApproval)
+            })
+        }
+        /**
+         * @desc 提交审批请求
+         */
+        const upApproval = async (taskId: string, urls:string) => {
+            const url = urls
+            // const url = mixinsData.dialogUrl.upApproval
+            const params = {
+                taskId: taskId
+            }
+            await $api(url, { params }).then(() => {
+                ElMessage({
+                    type: 'success',
+                    message: '送审成功'
+                })
+                search()
+            })
+        }
         return {
             ...toRefs(data),
             showStatus,
@@ -438,7 +567,15 @@ export default {
             seeApproval,
             drawerClose,
             writeApproval,
-            getApprovalType
+            getApprovalType,
+            gethomeAdd,
+            upData,
+            seeData,
+            deletedata,
+            handleSizeChange,
+            handleCurrentChange,
+            closeaddDialog,
+            upTable
         }
     },
 }

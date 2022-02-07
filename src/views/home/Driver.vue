@@ -6,11 +6,7 @@
                 <div class="tabbodyafter"></div>
             </div>
             <div class="tabbody">
-                <piechart
-                class="piechart"
-                :titleFontSize="titleFontSize"
-                :pieData="pieData"
-                ></piechart>
+                <piechart class="piechart" :titleFontSize="titleFontSize" :pieData="pieData"></piechart>
                 <div class="tabbodyafter"></div>
             </div>
         </div>
@@ -19,11 +15,11 @@
                 <div class="tabmidtopTitle">2021年统计</div>
                 <div class="tabmidtopBody">
                     <div class="tabmidtopBodyLeft">
-                        <CountTo  :start='0' :end='totalCount'   :autoPlay="true" :duration='5000' />
+                        <CountTo :start="0" :end="totalCount" :autoPlay="true" :duration="5000" />
                         <span> 单</span>
                     </div>
                     <div class="tabmidtopBodyRight">
-                        <CountTo  :start='0' :end='totalValue'   :autoPlay="true" :duration='5000' />
+                        <CountTo :start="0" :end="totalValue" :autoPlay="true" :duration="5000" />
                         <span> 万元</span>
                     </div>
                 </div>
@@ -40,10 +36,7 @@
                 <div class="tabbodyafter"></div>
             </div>
             <div class="tabbody">
-                <totalchart
-                class="piechart"
-                :titleFontSize="titleFontSize"
-                ></totalchart>
+                <totalchart class="piechart" :titleFontSize="titleFontSize"></totalchart>
                 <div class="tabbodyafter"></div>
             </div>
         </div>
@@ -65,7 +58,7 @@ export default {
         piechart,
         rankchart,
         linechart,
-        totalchart
+        totalchart,
     },
     setup(props: any, content: any) {
         const route = useRoute()
@@ -79,12 +72,14 @@ export default {
         onMounted(() => {
             content.emit('changeRouterIndex', route.query.routerIndex)
             const erd = elementResizeDetectorMaker()
-            erd.listenTo(document.getElementById('bodyMap'), () => {
-                nextTick(() => {
-                    // 监听到事件后执行的业务逻辑
-                    screenAdapter()
+            const dom = document.getElementById('bodyMap')
+            if (dom)
+                erd.listenTo(dom, () => {
+                    nextTick(() => {
+                        // 监听到事件后执行的业务逻辑
+                        screenAdapter()
+                    })
                 })
-            })
         })
         /**
          * @desc 屏幕适配算法
@@ -92,7 +87,7 @@ export default {
         const screenAdapter = () => {
             setTimeout(() => {
                 data.titleFontSize = (data.body_ref.clientWidth / 100) * 0.8 // 15
-            },1000)
+            }, 1000)
         }
         /**
          * @desc 地图传递饼状图全国销量统计数据
@@ -104,7 +99,7 @@ export default {
         }
         return {
             ...toRefs(data),
-            backMapData
+            backMapData,
         }
     },
 }

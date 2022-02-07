@@ -128,7 +128,7 @@
             <vDialog
                 ref="addDialog"
                 :dialogFormShow="dialogFormShow"
-                @updata="search"
+                @updata="upTable()"
                 @closeaddDialog="closeaddDialog"
                 :IntList="IntList"
                 :topChange="topChange"
@@ -525,6 +525,13 @@ export default {
             search()
         }
         /**
+         * @desc 更新图表
+         */
+        const upTable = () => {
+            data.dialogFormShow = false
+            search()
+        }
+        /**
          * @desc 切换代办任务（审批）
          */
         const getApprovalType = (type:boolean) => {
@@ -572,7 +579,8 @@ export default {
             gethomeAdd,
             getPrint,
             seeData,
-            closeaddDialog
+            closeaddDialog,
+            upTable
         }
     },
 }

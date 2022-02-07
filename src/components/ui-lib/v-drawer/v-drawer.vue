@@ -382,7 +382,7 @@ export default {
         width: 100%;
         .ApprovalListBlock {
             height: 92%;
-            width: 70%;
+            // width: 70%;
             padding-right: 30%;
             overflow: auto;
             padding-left: 6px;
