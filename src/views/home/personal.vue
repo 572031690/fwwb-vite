@@ -58,7 +58,9 @@ import { personalTs } from '@/type/homeType'
 import { ElMessage, ElMessageBox, ElForm } from 'element-plus'
 
 export default {
-    name: 'personal',
+    name: 'Personal',
+    isRouter: true,
+    isChildren: true,
     setup(props: any, content: any) {
         const validatePass2 = (rule: string, value: string, callback: any) => {
             if (value === '') {

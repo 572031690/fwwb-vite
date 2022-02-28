@@ -173,6 +173,9 @@ import { useStore } from 'vuex'
 import { ElMessage, ElMessageBox } from 'element-plus'
 
 export default {
+    name: 'User',
+    isRouter: true,
+    isChildren: true,
     mixins: [homeMix],
     setup(props: Record<string, any>, context: any) {
         const route = useRoute()

@@ -103,6 +103,9 @@ import { ElMessage } from 'element-plus'
 
 export default {
     mixins: [homeMix],
+    name: 'Permission',
+    isChildren: true,
+    isRouter: true,
     setup(props: Record<string, any>, context: any) {
         const route = useRoute()
         const { deletedata, mixinsData, handleSizeChange, handleCurrentChange, seeData, closeaddDialog } = homeMix.setup(props, context)

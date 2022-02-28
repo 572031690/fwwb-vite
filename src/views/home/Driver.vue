@@ -53,6 +53,8 @@ import { useRoute } from 'vue-router'
 import { reactive, onMounted, toRefs, ref, nextTick } from 'vue'
 export default {
     name: 'driver',
+    isRouter: true,
+    isChildren: true,
     components: {
         mapChina,
         piechart,

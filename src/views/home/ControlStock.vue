@@ -136,6 +136,9 @@ import $tables from '@/assets/data/tableData'
 import { useRoute } from 'vue-router'
 
 export default {
+    name: 'ControlStock',
+    isRouter: true,
+    isChildren: true,
     mixins: [homeMix],
     components: {
         controlDialog,

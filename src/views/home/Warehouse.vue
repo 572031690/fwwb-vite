@@ -91,7 +91,10 @@ import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 
 export default {
+    name: 'Warehouse',
+    isChildren: true,
     mixins: [homeMix],
+    isRouter: true,
     setup(props: Record<string, any>, context: any) {
         const store = useStore()
         const route = useRoute()

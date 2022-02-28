@@ -23,7 +23,7 @@
                                         <span class="userimg"></span>
                                         <input
                                             @keyup.enter="login()"
-                                            type="text"
+                                            type="text" 
                                             class="name"
                                             placeholder="username"
                                             ref="logintext"
@@ -93,7 +93,8 @@ import { ElMessage } from 'element-plus'
 import $Api from '../service/api'
 import { ElNotification } from 'element-plus'
 export default {
-    name: 'login',
+    name: 'Login',
+    isRouter: true, // 自定义属性用于路由匹配
     components: {
         'v-validateCode': ValidateCode,
         // register
@@ -122,7 +123,6 @@ export default {
             getStar()
         })
         onBeforeUnmount(() => {
-            console.log('object')
             let bodyHtml = <HTMLBodyElement | null>document.querySelector('body')
             if (bodyHtml) bodyHtml.setAttribute('style', 'background:#f4f4f4;')
         })
@@ -174,7 +174,11 @@ export default {
                 data.tipsList.tips2 = ''
                 data.tipsList.tips1 = ''
                 data.logindata.inputVal = ''
-                goLogin()
+                router.push({
+                            path: '/home/homewel',
+                            query: { routerIndex: 1 },
+                        })
+                // goLogin()
                 
             } else {
                 data.tipsList.result = '验证码输入错误'

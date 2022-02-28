@@ -45,7 +45,7 @@
         <div :class="{ rightNavigation: navshow, rightNavigations: !navshow }">
             <div class="rightnav-top">
                 <div class="rightnav-topimg">
-                    <img src="../../assets/img/heng.png" class="rightnav-topimghome" ref="rightnavtopimghome" @click="changeHomeImg()" />
+                    <img src="@/assets/img/heng.png" class="rightnav-topimghome" ref="rightnavtopimghome" @click="changeHomeImg()" />
                 </div>
 
                 <span class="home-page">首页</span>
@@ -84,7 +84,8 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { HomeTs } from '@/assets/data/type'
 
 export default {
-    name: 'home',
+    name: 'Home',
+    isRouter: true,
     setup() {
         const data: HomeTs = reactive({
             nowTime: '',
@@ -110,7 +111,7 @@ export default {
         const route = useRoute()
         const store = useStore()
         const reactData = toRefs(data)
-        data.permissionName = JSON.parse(window.sessionStorage.getItem('permissionName') || '')
+        data.permissionName = JSON.parse(window.sessionStorage.getItem('permissionName') || '[]')
         store.commit('SET_PERMISSION_NAME', data.permissionName)
         data.adminname = window.sessionStorage.getItem('storeData') || '' // 获取浏览器缓存值
         onMounted(() => {

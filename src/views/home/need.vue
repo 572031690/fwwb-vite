@@ -141,6 +141,9 @@ import { needTs } from '@/type/homeType'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import printJS from 'print-js'
 export default {
+    name: 'Need',
+    isRouter: true,
+    isChildren: true,
     components: {
         needSearch,
     },

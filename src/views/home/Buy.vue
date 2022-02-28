@@ -152,9 +152,12 @@ import { buyTs } from '@/type/homeType'
 import printJS from 'print-js'
 
 export default {
-      components: {
-        buySearch
-      },
+    name: 'Buy',
+    isRouter: true,
+    isChildren: true,
+    components: {
+    buySearch
+    },
     setup(props: Record<string, any>, context: any) {
         const route = useRoute()
         const data:buyTs = reactive({

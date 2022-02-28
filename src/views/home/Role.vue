@@ -109,7 +109,10 @@ import $api from '@/service/api'
 import { ElMessage } from 'element-plus'
 
 export default {
-    mixins: [homeMix],
+    mixins: [homeMix],    
+    name: 'Role',
+    isRouter: true,
+    isChildren: true,
     components: {
         permissionDialog,
     },

@@ -93,7 +93,9 @@ import { homeWelTs } from '@/type/homeType'
 import $api from '@/service/api'
 
 export default {
-    name: 'home-wel',
+    name: 'HomeWel',
+    isRouter: true,
+    isChildren: true,
     setup(props: any, content: any) {
         const store = useStore()
         const route = useRoute()
