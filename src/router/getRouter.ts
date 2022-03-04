@@ -27,13 +27,13 @@ export const vueRouters = function (): Array<RouteRecordRaw> {
             routerList[faterIndex].children.push({
                 path: lastName,
                 name: lastName,
-                component: modules[key]
+                component: modules[key] // 使用此生成的是() => import("**")动态引入路由
             })
         }else {
             routerList.push({
                 path: `/${pathName}`,
                 name: lowNameArray.slice(-1)[0],
-                component: modules[key],
+                component: modules[key], // 使用此生成的是() => import("**")动态引入路由
                 children:[]
             })
         }
