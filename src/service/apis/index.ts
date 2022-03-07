@@ -1,4 +1,4 @@
-const contexts: any = import.meta.globEager("./module/*.ts")
+const contexts: any = import.meta.globEager("./module/**/*.ts") // module下的所有文件夹下的ts文件
 const keyApi = Object.keys(contexts)
 const Api:{[key:string]:any} = {}
 keyApi.forEach((item:string) => {

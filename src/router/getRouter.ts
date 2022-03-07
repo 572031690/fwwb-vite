@@ -7,6 +7,7 @@ function getComponents() {
     const components = import.meta.globEager('../views/**/*.vue')
     return components
 }
+export const pathList:string[] = []
 // 自动注册路由
 export const vueRouters = function (): Array<RouteRecordRaw> {
     const routerList: Array<RouteRecordRaw> = []
@@ -23,6 +24,7 @@ export const vueRouters = function (): Array<RouteRecordRaw> {
         if(file.isChildren) { // 只能解决一级的children子路由嵌套
             const faterIndex:number = routerList.findIndex((item:any) => item.name===lowNameArray.slice(-2)[0])
             if(faterIndex===-1) return
+            pathList.push(`/${pathName}`)
             const lastName = lowNameArray.slice(-1)[0]
             routerList[faterIndex].children.push({
                 path: lastName,
@@ -30,6 +32,7 @@ export const vueRouters = function (): Array<RouteRecordRaw> {
                 component: modules[key] // 使用此生成的是() => import("**")动态引入路由
             })
         }else {
+            pathList.push(`/${pathName}`)
             routerList.push({
                 path: `/${pathName}`,
                 name: lowNameArray.slice(-1)[0],

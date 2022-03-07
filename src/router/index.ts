@@ -7,53 +7,8 @@ const routes: RouteRecordRaw[] = [
     // {
     //     path: '/home', component: () => import("@/views/Home.vue"), name: 'home', children: [
     //         {
-    //             path: 'user',
-    //             component: () => import('@/views/home/User.vue'),
-    //             meta: { title: '用户信息', isTab: true }
-    //         },
-    //         {
-    //             path: 'need',
-    //             component: () => import('@/views/home/need.vue')
-    //         },
-    //         {
-    //             path: 'permission',
-    //             component: () => import('@/views/home/permission.vue')
-    //         },
-    //         {
-    //             path: 'personal',
-    //             component: () => import('@/views/home/personal.vue')
-    //         },
-    //         {
-    //             path: 'item',
-    //             component: () => import('@/views/home/Item.vue')
-    //         },
-    //         {
-    //             path: 'buy',
-    //             component: () => import('@/views/home/Buy.vue')
-    //         },
-    //         {
     //             path: 'homewel',
     //             component: () => import("@/views/home/HomeWel.vue")
-    //         },
-    //         // {
-    //         //     path: 'department',
-    //         //     component: () => import('@/views/home/Department.vue')
-    //         // },
-    //         {
-    //             path: 'driver',
-    //             component: () => import('@/views/home/Driver.vue')
-    //         },
-    //         {
-    //             path: 'contrstock',
-    //             component: () => import('@/views/home/ControlStock.vue')
-    //         },
-    //         {
-    //             path: 'role',
-    //             component: () => import('@/views/home/Role.vue')
-    //         },
-    //         {
-    //             path: 'warehouse',
-    //             component: () => import('@/views/home/Warehouse.vue')
     //         },
     //         {
     //             path: '',
