@@ -69,7 +69,7 @@
                                             >
                                                 删除
                                             </button>
-                                            <button class="modify" v-if="!item.uptype" @click="upData(item,dialogUrl)">提交</button>
+                                            <button class="modify" v-if="!item.uptype" @click="upData(item, dialogUrl)">提交</button>
                                             <button class="approval" @click="seeApproval(key)" v-if="item.uptype == 1 || item.uptype == 2 || item.uptype == 3">
                                                 查看审批
                                             </button>
@@ -132,7 +132,7 @@
     </div>
 </template>
 <script lang="ts">
-import needSearch from '@/components/need/needSearch.vue'
+// import needSearch from '@/components/need/needSearch.vue'
 import { reactive, onMounted, onUnmounted, toRefs, ref, computed } from 'vue'
 import $api from '@/service/api'
 import $tables from '@/assets/data/tableData'
@@ -145,7 +145,7 @@ export default {
     isRouter: true,
     isChildren: true,
     components: {
-        needSearch,
+        // needSearch,
     },
     setup(props: Record<string, any>, context: any) {
         const route = useRoute()
@@ -267,17 +267,24 @@ export default {
             loading2: true,
             thistime: null,
             searchUrl: '',
-            openType:'',
+            openType: '',
             Draw: ref(),
-            currentList:{}
+            currentList: {},
         })
-        const showStatus = computed(() => {
-            return function (type: number, plan: number, approvaltype: number) {
-                if (type !== 3) return data.select[type].label
-                else if (approvaltype === 1) return plan === 1 ? '待采购' : '待出库'
-                else if (approvaltype === 2) {
-                    return plan === 1 ? '完成采购' : '完成出库'
-                }
+        // const showStatus = computed(() => {
+        //     return function (type: number, plan: number, approvaltype: number) {
+        //         if (type !== 3) return data.select[type].label
+        //         else if (approvaltype === 1) return plan === 1 ? '待采购' : '待出库'
+        //         else if (approvaltype === 2) {
+        //             return plan === 1 ? '完成采购' : '完成出库'
+        //         }
+        //     }
+        // })
+        const showStatus = computed(() => (type: number, plan: number, approvaltype: number) => {
+            if (type !== 3) return data.select[type].label
+            else if (approvaltype === 1) return plan === 1 ? '待采购' : '待出库'
+            else if (approvaltype === 2) {
+                return plan === 1 ? '完成采购' : '完成出库'
             }
         })
         onMounted(() => {
@@ -343,7 +350,7 @@ export default {
                             neederid: res.list[i].neederid,
                             department: res.list[i].department,
                             comment: res.list[i].comment,
-                            uptype: showStatus(res.list[i].uptype, res.list[i].planName, res.list[i].approvaltype),
+                            uptype: showStatus.value(res.list[i].uptype, res.list[i].planName, res.list[i].approvaltype),
                         })
                     }
                     setPrintJS(currentPrint)
@@ -433,7 +440,7 @@ export default {
         /**
          * @desc 修改表单
          */
-        const seeData = (e:any) => {
+        const seeData = (e: any) => {
             data.openType = 'edit'
             data.currentList = e
             data.dialogFormShow = true
@@ -451,35 +458,37 @@ export default {
         /**
          * @desc 删除方法
          */
-        const deletedata = (data:any, url: string) => {
+        const deletedata = (data: any, url: string) => {
             ElMessageBox.confirm('此操作将永久删除该数据, 是否继续?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning',
-            }).then(async () => {
-                await $api(url, {
-                    params: data
-                }).then((res: any) => {
-                    if (res) {
-                        ElMessage({
-                            type: 'success',
-                            message: '删除成功!'
-                        })
-                        search()
+            })
+                .then(async () => {
+                    await $api(url, {
+                        params: data,
+                    }).then((res: any) => {
+                        if (res) {
+                            ElMessage({
+                                type: 'success',
+                                message: '删除成功!',
+                            })
+                            search()
+                        } else {
+                            ElMessage.error('错了哦，删除失败')
+                        }
+                    })
+                })
+                .catch((err: any) => {
+                    if (err === 'cncel') {
+                        ElMessage('取消删除')
                     } else {
-                        ElMessage.error('错了哦，删除失败')
+                        ElMessage({
+                            type: 'error',
+                            message: '取消删除',
+                        })
                     }
                 })
-            }).catch((err:any) => {
-                if (err === 'cncel') {
-                    ElMessage('取消删除')
-                } else {
-                    ElMessage({
-                        type: 'error',
-                        message: '取消删除'
-                    })
-                }
-            })
         }
         /**
          * @desc 打开查看抽屉
@@ -510,22 +519,22 @@ export default {
         /**
          * @desc 提交送审表单
          */
-        const upData = (item:any, api:{startApproval:string, upApproval:string}) => {
+        const upData = (item: any, api: { startApproval: string; upApproval: string }) => {
             ElMessageBox.confirm('是否确定提交审批申请?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
-                type: 'warning'
+                type: 'warning',
             })
                 .then(async () => {
                     startApproval(item, api)
                 })
-                .catch((err:string) => {
+                .catch((err: string) => {
                     if (err === 'cancel') {
                         ElMessage('取消提交')
                     } else {
                         ElMessage({
                             type: 'error',
-                            message: err
+                            message: err,
                         })
                     }
                 })
@@ -533,12 +542,12 @@ export default {
         /**
          * @desc 启动审批请求
          */
-        const startApproval = async (item:any, api:{startApproval:string, upApproval:string}) => {
+        const startApproval = async (item: any, api: { startApproval: string; upApproval: string }) => {
             const url = api.startApproval
             // const url = mixinsData.dialogUrl.startApproval
             const params = {
                 needid: item.needid,
-                buyid: item.buyid
+                buyid: item.buyid,
             }
             await $api(url, { params }).then((res: any) => {
                 upApproval(res.list[0].taskId, api.upApproval)
@@ -547,16 +556,16 @@ export default {
         /**
          * @desc 提交审批请求
          */
-        const upApproval = async (taskId: string, urls:string) => {
+        const upApproval = async (taskId: string, urls: string) => {
             const url = urls
             // const url = mixinsData.dialogUrl.upApproval
             const params = {
-                taskId: taskId
+                taskId: taskId,
             }
             await $api(url, { params }).then(() => {
                 ElMessage({
                     type: 'success',
-                    message: '送审成功'
+                    message: '送审成功',
                 })
                 search()
             })
@@ -578,7 +587,7 @@ export default {
             handleSizeChange,
             handleCurrentChange,
             closeaddDialog,
-            upTable
+            upTable,
         }
     },
 }

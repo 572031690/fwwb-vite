@@ -8,7 +8,6 @@
 import base from './baseServe'
 import request from './index'
 import ApiConfig from './apis'
-
 const getApi = (url:string,params?:Record<string, any>) => {
     const start = url.lastIndexOf('/') + 1 // 获得最后一次出现‘/’的位置
     const strName = url.slice(start) // 取得从该位置到结束的名字也就是方法name

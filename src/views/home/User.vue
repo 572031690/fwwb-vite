@@ -408,11 +408,11 @@ export default {
 </script>
 <style lang="less" scoped>
 @import url('../../styles/right-table.less');
-.searchfa {
-  /deep/ .el-input__inner {
-    padding: 0 5px;
-  }
-}
+// .searchfa {
+//   /deep/ .el-input__inner {
+//     padding: 0 5px;
+//   }
+// }
 
 .tableRole {
   &Top {

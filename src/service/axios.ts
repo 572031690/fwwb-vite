@@ -5,7 +5,7 @@ const messageBox = (msg: string, type?: any) => {
     ElMessage({
         message: msg,
         type: type || 'warning',
-        duration: 1500,
+        duration: 1500
     })
 }
 // 获取token
@@ -84,7 +84,7 @@ const instance = axios.create({
         // 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常
         return true
     },
-    transformResponse: [(data) => {
+    transformResponse: [(data) => { //对于返回JSON格式数据统一转换
         if (typeof data === 'string' && data.startsWith('{')) {
             data = JSON.parse(data)
         }

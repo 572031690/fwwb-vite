@@ -198,11 +198,11 @@ export default {
                 data.tipsList.tips2 = ''
                 data.tipsList.tips1 = ''
                 data.logindata.inputVal = ''
-                router.push({
-                            path: '/home/homewel',
-                            query: { routerIndex: 1 },
-                        })
-                // goLogin()
+                // router.push({
+                //             path: '/home/homewel',
+                //             query: { routerIndex: 1 },
+                //         })
+                goLogin()
                 
             } else {
                 data.tipsList.result = '验证码输入错误'
