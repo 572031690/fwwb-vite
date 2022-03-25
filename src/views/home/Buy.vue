@@ -373,7 +373,7 @@ export default {
                             itemid: res.list[i].itemid,
                             num: res.list[i].num,
                             importance: data.importanceList[res.list[i].importance - 1].text,
-                            uptype: showStatus(res.list[i].uptype, res.list[i].buytype),
+                            uptype: showStatus.value(res.list[i].uptype, res.list[i].buytype),
                         })
                     }
                     setPrintJS(currentPrint)
