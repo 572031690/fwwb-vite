@@ -6,9 +6,8 @@ import { FunctionExpression } from "@babel/types"
   * @param wait 函数执行间隔时间毫秒数 默认1s Number
   * @param immediate 是否立即执行 Boolean
   */
-export function debounce (fn:FunctionExpression, immediate:boolean, wait?:number) {
-  wait = wait || 1000
-  let timer:any
+export function debounce (fn:() => void, immediate:boolean, wait:number=1000) {
+  let timer:null | NodeJS.Timeout
   return function () {
     if (timer && immediate) return
     const args = arguments

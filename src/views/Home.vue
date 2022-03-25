@@ -82,6 +82,7 @@ import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { HomeTs } from '@/assets/data/type'
+import { debounce } from '@/assets/utils'
 
 export default {
     name: 'Home',
@@ -280,9 +281,17 @@ export default {
                 }) // 页面跳转
             }
         }
-        const changeHomeImg = () => {
-            changeNav()
-        }
+
+        /**
+         * @desc 搜索防抖
+         */
+        const changeHomeImg = debounce(
+            function done () {
+                changeNav()
+            },
+            true,
+            1000
+        )
         /**
          * @desc 退出登陆方法
          */

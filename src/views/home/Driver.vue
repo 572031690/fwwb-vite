@@ -212,6 +212,8 @@ export default {
 @font-face {
     font-family: electronicFont;
     src: url(../../assets/图标字体/DS-DIGIT.TTF);
+    font-weight: normal;
+    font-style: normal;
 }
 .tabmidtopBodyLeft {
     flex: 1;
