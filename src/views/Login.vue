@@ -518,9 +518,11 @@ input {
 #login {
     margin-left: 7px;
 }
+
 /*css设置不可点击时置灰*/
 /* .el-button.disabled-style {
   background-color: #eeeeee;
   color: #cccccc;
 } */
+
 </style>

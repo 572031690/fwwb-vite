@@ -289,6 +289,8 @@ export default {
                         ElMessage.success('修改成功！')
                         cancelEditData(index)
                         search()
+                    }else {
+                        cancelEditData(index)
                     }
                 })
                 .catch(() => {})
@@ -297,6 +299,7 @@ export default {
          * @desc 取消编辑
          */
         const cancelEditData = (index: number) => {
+            console.log(index,'deins');
             data.list[index].editType = false
         }
         /**
@@ -431,7 +434,8 @@ export default {
             saveAddData,
             handleSizeChange,
             handleCurrentChange,
-            deletedata
+            deletedata,
+            cancelEditData
         }
     },
 }

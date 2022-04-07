@@ -226,7 +226,7 @@ export const routerList: {
         type: 'router',
         index: 11,
         permissionName: 'storekeeper:findInRepositoryList',
-        path: '/home/contrstock',
+        path: '/home/ControlStock',
         label: '仓库管理',
         ref: 'spans18',
         disabled: false,

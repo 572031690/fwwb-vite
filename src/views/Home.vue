@@ -11,9 +11,13 @@
                             checkBox: item.index == checkIndex,
                         }"
                         :ref="el => (LabelRefs[item.ref] = el)"
-                        >{{ item.label }}</span
-                    >
-                    <img v-if="item.type === 'tips' && item.showtab" :src="item.imgtips" class="arrow" :ref="el => (arrowData[index] = el)" />
+                    >{{ item.label }}</span>
+                    <img
+                        v-if="item.type === 'tips' && item.showtab"
+                        :src="item.imgtips"
+                        class="arrow"
+                        :ref="el => (arrowData[index] = el)"
+                    />
                 </div>
                 <div class="lineTips" v-if="index === 0"></div>
                 <!-- 子列表 -->
@@ -31,9 +35,14 @@
                                 <div :class="!itemson.disabled ? 'namehome-son1' : 'disabledClick'">
                                     <div class="checkLineDiv" v-if="itemson.index == checkIndex"></div>
                                     <img :src="itemson.imgSrc" class="navson-img" />
-                                    <span :ref="el => (LabelRefs[itemson.ref] = el)" :class="{ checkBox: itemson.index == checkIndex }">{{
-                                        itemson.label
-                                    }}</span>
+                                    <span
+                                        :ref="el => (LabelRefs[itemson.ref] = el)"
+                                        :class="{ checkBox: itemson.index == checkIndex }"
+                                    >
+                                        {{
+                                            itemson.label
+                                        }}
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +54,12 @@
         <div :class="{ rightNavigation: navshow, rightNavigations: !navshow }">
             <div class="rightnav-top">
                 <div class="rightnav-topimg">
-                    <img src="@/assets/img/heng.png" class="rightnav-topimghome" ref="rightnavtopimghome" @click="changeHomeImg()" />
+                    <img
+                        src="@/assets/img/heng.png"
+                        class="rightnav-topimghome"
+                        ref="rightnavtopimghome"
+                        @click="changeHomeImg()"
+                    />
                 </div>
 
                 <span class="home-page">首页</span>
@@ -58,7 +72,9 @@
                     <!-- 退出下拉框 -->
                     <el-dropdown @command="gobacklogin">
                         <span class="el-dropdown-link">
-                            欢迎你: <span class="adminname">{{ adminname }} </span><i class="el-icon-arrow-down el-icon--right"></i>
+                            欢迎你:
+                            <span class="adminname">{{ adminname }}</span>
+                            <i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <template #dropdown>
                             <el-dropdown-menu>
@@ -132,7 +148,7 @@ export default {
         /**
          * @desc 导航栏点击样式切换
          */
-        const changeRouterIndex = (index:number) => {
+        const changeRouterIndex = (index: number) => {
             data.checkIndex = index
         }
         /**
@@ -286,7 +302,7 @@ export default {
          * @desc 搜索防抖
          */
         const changeHomeImg = debounce(
-            function done () {
+            function done() {
                 changeNav()
             },
             true,
@@ -337,7 +353,7 @@ export default {
     //   rgb(242, 246, 253),
     //   rgb(199, 206, 218)
     // );
-    background-image: url('/src/assets/img/back-img.png');
+    background-image: url("/src/assets/img/back-img.png");
     background-size: 100% 100%;
 }
 .leftNavigation {
@@ -403,7 +419,6 @@ export default {
     }
 }
 .navhome-img {
-    /* -webkit-transform:rotate(90deg); */
     width: 1.5vw;
     margin: 0 7%;
     margin-left: 13%;
@@ -523,7 +538,6 @@ export default {
     height: 100vh;
     /*占满一个屏幕的高度 */
     box-sizing: border-box;
-    /* margin-left: 180px; */
     animation: rightNavlong 0.7s;
 }
 .rightNavigations {
@@ -555,13 +569,6 @@ export default {
     height: 48px;
     display: flex;
     flex-direction: row;
-    // background-color: #fff;
-    // background: linear-gradient(
-    //   to right,
-    //   rgb(242, 246, 253),
-    //   rgb(235, 240, 248),
-    //   rgb(242, 246, 253)
-    // );
     border-bottom: 1px solid #dadce0;
     border-top: 1px solid #dadce0;
     span {
@@ -595,7 +602,6 @@ export default {
     margin: 12px 6px 0;
     height: 30px;
     cursor: pointer;
-    // border-radius: 10px;
 }
 .weltop {
     font-size: 14px;
@@ -607,7 +613,7 @@ export default {
 .elsign-out {
     padding-top: 13px;
 }
-/deep/.el-dropdown{
+/deep/.el-dropdown {
     margin-top: 10px;
 }
 .el-dropdown-link {

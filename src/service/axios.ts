@@ -60,6 +60,7 @@ const errorHandle = (status: number, other: string) => {
     // }
 }
 function getErrorMessage(status:number) {
+    if(status===200) return
     // if (error.code === 'ECONNABORTED') return '错误：请求超时'
     const typeData:{[key:number]:string} = {
         302: '错误：暂无权限 302',
@@ -119,6 +120,8 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
     // 请求成功
     (response: AxiosResponse<any>) => {
+        const msg:string|undefined = getErrorMessage(response.status)
+        msg && messageBox(msg)
         // 增加延迟，相同请求不得在短时间内重复发送
         setTimeout(() => {
             handleAllowRequest(reqList, response.config.url)

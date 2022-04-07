@@ -1,11 +1,11 @@
 <template>
     <div class="vSearchNav">
         <div class="vSearchNavHeart">
-            <vSearchNav width="280px" label="标题" labelwidth="90px">
+            <vSearchNav class="searIcon" width="280px" label="标题" labelwidth="90px">
                 <el-input @change="setSearchForm" v-model="searchForm.searchName" style="width: 220px" suffix-icon="el-icon-search" clearable />
             </vSearchNav>
-            <vSearchNav width="350px" label="日期" labelwidth="130px">
-                <el-date-picker
+            <vSearchNav class="searIcon"  width="350px" label="日期" labelwidth="130px">
+                <!-- <el-date-picker
                     type="date"
                     value-format="yyyy-MM-dd"
                     @change="setSearchForm"
@@ -15,7 +15,18 @@
                     placeholder="选择需求日期"
                     clearable
                 >
-                </el-date-picker>
+                </el-date-picker> -->
+                <el-date-picker 
+                    v-model="searchForm.btime" 
+                    type="date" 
+                    format="YYYY/MM/DD"
+                    value-format="YYYY-MM-DD"
+                    @change="setSearchForm"
+                    style="width: 220px"
+                    :disabledDate="disabledDate"
+                    placeholder="选择需求日期"
+                    clearable
+                />
             </vSearchNav>
             <vSearchNav width="350px" label="审批状态" labelwidth="120px">
                 <el-select style="width: 220px" v-model="searchForm.selectName" placeholder="请选择" @change="setSearchForm" clearable>
@@ -27,7 +38,7 @@
                     <el-option v-for="item in optionsDepartment" :key="item.itemtype" :label="item.itemtype" :value="item.itemtype"> </el-option>
                 </el-select>
             </vSearchNav>
-            <vSearchNav width="320px" label="物料类别" labelwidth="90px">
+            <vSearchNav width="360px" label="物料类别" labelwidth="110px">
                 <el-select style="width: 220px" v-model="searchForm.itemtype" placeholder="请选择" @change="setSearchForm" clearable>
                     <el-option v-for="item in optionsType" :key="item.itemtype" :label="item.itemtype" :value="item.itemtype"> </el-option>
                 </el-select>
@@ -49,11 +60,7 @@ export default {
     name: 'buy-search',
     setup(props: any, content: any) {
         const data = reactive({
-            pickerOptions: {
-                disabledDate: (time: Date) => {
-                    return time.getTime() > Date.now()
-                }
-            },
+            
             searchForm: {
                 searchName: '', // 传递搜索参数
                 selectName: '',
@@ -99,6 +106,9 @@ export default {
             getType()
             getId()
         })
+        const disabledDate = (time:Date) => {
+                return time.getTime() > Date.now()
+        }
         /**
          * @desc 搜索
          */
@@ -147,7 +157,8 @@ export default {
         return {
             ...toRefs(data),
             resetForm,
-            setSearchForm
+            setSearchForm,
+            disabledDate
         }
     },
 }
@@ -171,5 +182,14 @@ export default {
             line-height: 10px;
         }
     }
+}
+.searIcon {
+    /deep/.el-input__suffix {
+        top: 0px;
+    }
+}
+
+/deep/.el-input__suffix {
+    top: -3px;
 }
 </style>

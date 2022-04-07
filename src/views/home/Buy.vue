@@ -258,6 +258,7 @@ export default {
         })
         const showStatus = computed(() => {
             return function(type: number, approvaltype: number)  {
+                console.log(type,approvaltype,'approvaltype');
                 if (type !== 3) return data.select[type].label
                 else if (approvaltype === 1) return '待采购'
                 else if (approvaltype === 2) return '完成采购'

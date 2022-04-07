@@ -364,6 +364,7 @@ export default {
          * @desc 添加和修改请求
          */
         const submitData = async () => {
+            console.log(data.dialogData.formList,'data.dialogData.formList');
             var params: { [key: string]: string } = {}
             for (const i in data.dialogData.formList) {
                 params[i] = data.dialogData.formList[i]
