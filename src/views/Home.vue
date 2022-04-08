@@ -613,7 +613,7 @@ export default {
 .elsign-out {
     padding-top: 13px;
 }
-/deep/.el-dropdown {
+::v-deep(.el-dropdown) {
     margin-top: 10px;
 }
 .el-dropdown-link {
