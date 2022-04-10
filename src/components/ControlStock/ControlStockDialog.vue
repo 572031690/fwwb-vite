@@ -448,15 +448,15 @@ export default {
     overflow-y: auto;
     overflow-x: hidden;
     margin-bottom: 15px;
-    /deep/ .el-input__inner {
+    ::v-deep(.el-input__inner) {
         border: none;
         padding: 0;
         text-align: center;
     }
-    /deep/ .el-input-number__decrease {
+    ::v-deep(.el-input-number__decrease) {
         width: 20px;
     }
-    /deep/ .el-input-number__increase {
+    ::v-deep(.el-input-number__increase) {
         width: 20px;
     }
     &Top {

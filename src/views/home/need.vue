@@ -596,7 +596,7 @@ export default {
 @import url('../../styles/right-table.less');
 
 .approvalBtn {
-    /deep/ .el-button {
+    ::v-deep(.el-button) {
         padding: 8px 20px !important;
     }
 }

@@ -310,7 +310,7 @@ export default {
     clear: both;
   }
 }
-/deep/.el-card__header{
+::v-deep(.el-card__header){
     font-size: 16px;
 }
 </style>

@@ -184,12 +184,12 @@ export default {
     }
 }
 .searIcon {
-    /deep/.el-input__suffix {
+    ::v-deep(.el-input__suffix) {
         top: 0px;
     }
 }
 
-/deep/.el-input__suffix {
+::v-deep(.el-input__suffix) {
     top: -3px;
 }
 </style>
