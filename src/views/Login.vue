@@ -503,7 +503,7 @@ input {
         /*缓慢hover显示 */
         &:hover {
             background-color: #73b8fe;
-            box-shadow: 0 0 12px#73b8fe;
+            box-shadow: 0 0 12px #73b8fe;
         }
         &:active {
             position: relative;

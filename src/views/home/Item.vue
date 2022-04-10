@@ -248,7 +248,7 @@ export default {
         border-radius: 0 5px 5px 0;
         &:hover {
             background-color: #c8c8c8;
-            box-shadow: 0 0 3px#c8c8c8;
+            box-shadow: 0 0 3px #c8c8c8;
         }
         &:active {
             padding-left: 1px;

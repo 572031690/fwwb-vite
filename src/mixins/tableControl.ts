@@ -32,15 +32,6 @@ interface dataList {
     thistime: null|NodeJS.Timeout
 }
 const tableControler = {
-    // props: {
-    //     // 研判分析参数
-    //     circleAnalysis: {
-    //         type: Object,
-    //         default: () => {
-    //             return null
-    //         },
-    //     },
-    // },
     setup:(props: Record<string, any>, context: any) => {
         const mixinsData: dataList = reactive({
             params: {
