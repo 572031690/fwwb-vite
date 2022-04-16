@@ -12,7 +12,7 @@
         </div>
         <div class="tabmid">
             <div class="tabmidtop">
-                <div class="tabmidtopTitle">2021年统计</div>
+                <div class="tabmidtopTitle">2022年统计</div>
                 <div class="tabmidtopBody">
                     <div class="tabmidtopBodyLeft">
                         <CountTo :start="0" :end="totalCount" :autoPlay="true" :duration="5000" />

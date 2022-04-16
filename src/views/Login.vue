@@ -6,7 +6,8 @@
         <div id="Login-body" ref="appref">
             <div class="top-backhome">
                 <img src="../assets/img/titleImportant.png" style="vertical-align: middle; height: 50px" />
-                <span>智能制造协同共享平台</span>
+                <!-- <span>智能制造协同共享平台</span> -->
+                <span>生产原料申报审批系统</span>
             </div>
             <div class="login-top">
                 <img src="../assets/img/center-login.png" class="filImg" />

@@ -28,11 +28,11 @@ const tableList = {
     tableBody: ['itemid', 'itemtype', 'comment', 'opetation']
   },
   warehouseList: {
-    tableTitle: ['物料编号', '物资名称', '描述', '货量', '总货量', '单位', '操作'],
+    tableTitle: ['原料编号', '物资名称', '描述', '货量', '总货量', '单位', '操作'],
     tableBody: ['itemcode', 'name', 'comment', 'stock', 'totalstock', 'unit', 'opetation']
   },
   warehouseSeeList: {
-    tableTitle: ['物料编号', '物资名称', '描述', '货量', '总货量', '单位'],
+    tableTitle: ['原料编号', '物资名称', '描述', '货量', '总货量', '单位'],
     tableBody: ['itemcode', 'name', 'comment', 'stock', 'totalstock', 'unit']
   },
   controlOutStockList: {

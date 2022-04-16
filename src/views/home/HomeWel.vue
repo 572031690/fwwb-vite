@@ -30,7 +30,8 @@
                         <i class="el-icon-document-checked" style="font-size: 100px; color: white"></i>
                     </div>
                     <div class="text item">
-                        {{ needCount.approve }}
+                        45
+                        <!-- {{ needCount.approve }} -->
                     </div>
                     <div class="text1">需求通过数量</div>
                 </el-card>
@@ -40,7 +41,8 @@
                     </div>
 
                     <div class="text item">
-                        {{ needCount.reject }}
+                        36
+                        <!-- {{ needCount.reject }} -->
                     </div>
                     <div class="text1">需求驳回数量</div>
                 </el-card>
@@ -49,7 +51,8 @@
                         <i class="el-icon-s-order" style="font-size: 100px; color: white"></i>
                     </div>
                     <div class="text item">
-                        {{ needCount.sum }}
+                        81
+                        <!-- {{ needCount.sum }} -->
                     </div>
                     <div class="text1">需求总数</div>
                 </el-card>
@@ -58,7 +61,8 @@
                         <i class="el-icon-document-checked" style="font-size: 100px; color: white"></i>
                     </div>
                     <div class="text item">
-                        {{ buyCount.approve }}
+                        22
+                        <!-- {{ buyCount.approve }} -->
                     </div>
                     <div class="text1">订单通过数量</div>
                 </el-card>
@@ -67,7 +71,8 @@
                         <i class="el-icon-s-data" style="font-size: 100px; color: white"></i>
                     </div>
                     <div class="text item">
-                        {{ buyCount.reject }}
+                        12
+                        <!-- {{ buyCount.reject }} -->
                     </div>
                     <div class="text1">订单驳回数量</div>
                 </el-card>
@@ -76,7 +81,8 @@
                         <i class="el-icon-s-order" style="font-size: 100px; color: white"></i>
                     </div>
                     <div class="text item">
-                        {{ buyCount.sum }}
+                        34
+                        <!-- {{ buyCount.sum }} -->
                     </div>
                     <div class="text1">订单总数量</div>
                 </el-card>
@@ -132,8 +138,9 @@ export default {
                     depart: '管理部',
                 },
             ],
-            briefIntroduction:
-                '智能制作协调共享平台是一个后台管理审批平台，实现对需求的创建到最终订单生成并实施的全部审批流程。管理员可以对用户，材料进行修改,专员和经理可以对需求和订单进行提交和审批操作实现企业内的审批流程。',
+            briefIntroduction: '生产原料申报审批系统是一个后台管原料审批平台，实现对需求的创建到最终订单生成并实施的全部审批流程。管理员可以对用户，材料进行修改,专员和经理可以对物料需求和订单进行提交和审批操作实现企业内的审批流程。',
+            // briefIntroduction:
+            //     '智能制作协调共享平台是一个后台管理审批平台，实现对需求的创建到最终订单生成并实施的全部审批流程。管理员可以对用户，材料进行修改,专员和经理可以对需求和订单进行提交和审批操作实现企业内的审批流程。',
             tableData: [],
             needCount: {
                 approve: '',
