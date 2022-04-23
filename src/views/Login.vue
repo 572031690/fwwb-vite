@@ -28,7 +28,7 @@
                                             class="name"
                                             placeholder="username"
                                             ref="logintext"
-                                            v-model="logindata.uname"
+                                            v-model.trim="logindata.uname"
                                         />
                                         <div class="logintip">
                                             {{ tipsList.tips1 }}
@@ -42,7 +42,7 @@
                                             class="password"
                                             ref="passeyes"
                                             placeholder="password"
-                                            v-model="logindata.pass"
+                                            v-model.trim="logindata.pass"
                                         />
                                         <img :src="studyDataPic" class="passeyes" @click="eyeschange()" />
                                         <div class="logintip">
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="regiserbox">
                                         <span>验证码：</span>
-                                        <input type="text" class="regisertext" v-model="logindata.inputVal" @keyup.enter="login()" />
+                                        <input type="text" class="regisertext" v-model.trim="logindata.inputVal" @keyup.enter="login()" />
                                         <!-- 验证码组件 -->
                                         <v-validateCode ref="ref_validateCode" @change="changeCode" class="regiserimg"></v-validateCode>
                                     </div>
